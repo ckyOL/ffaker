@@ -1,5 +1,5 @@
 module FFaker
-  VERSION = '2.9.0'.freeze
+  VERSION = '2.10.0'.freeze
 
   require 'ffaker/utils/array_utils'
   require 'ffaker/utils/module_utils'
@@ -125,6 +125,7 @@ module FFaker
   autoload :NameCS, 'ffaker/name_cs'
   autoload :NameDA, 'ffaker/name_da'
   autoload :NameDE, 'ffaker/name_de'
+  autoload :NameES, 'ffaker/name_es'
   autoload :NameFR, 'ffaker/name_fr'
   autoload :NameGA, 'ffaker/name_ga'
   autoload :NameGR, 'ffaker/name_gr'
@@ -142,6 +143,7 @@ module FFaker
   autoload :NameSE, 'ffaker/name_se'
   autoload :NameSN, 'ffaker/name_sn'
   autoload :NameTH, 'ffaker/name_th'
+  autoload :NameTW, 'ffaker/name_tw'
   autoload :NameTHEN, 'ffaker/name_th_en'
   autoload :NameUA, 'ffaker/name_ua'
   autoload :NameVN, 'ffaker/name_vn'
@@ -162,6 +164,7 @@ module FFaker
   autoload :PhoneNumberSE, 'ffaker/phone_number_se'
   autoload :PhoneNumberSG, 'ffaker/phone_number_sg'
   autoload :PhoneNumberSN, 'ffaker/phone_number_sn'
+  autoload :PhoneNumberTW, 'ffaker/phone_number_tw'
   autoload :Product, 'ffaker/product'
   autoload :Skill, 'ffaker/skill'
   autoload :Sport, 'ffaker/sport'

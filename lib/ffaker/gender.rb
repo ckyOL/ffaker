@@ -5,10 +5,15 @@ module FFaker
     extend ModuleUtils
     extend self
 
-    GENDERS = %w[male female].freeze
+    GENDERS = %w[male female non-binary agender androgyne bi-gender pan-gender].freeze
+    BINARY_GENDERS = %w[male female].freeze
 
     def random
       fetch_sample(GENDERS)
+    end
+
+    def binary
+      fetch_sample(BINARY_GENDERS)
     end
 
     alias maybe random
