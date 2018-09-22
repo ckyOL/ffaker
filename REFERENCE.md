@@ -30,6 +30,7 @@
  * [FFaker::Airline](#ffakerairline)
  * [FFaker::Animal](#ffakeranimal)
  * [FFaker::AnimalCN](#ffakeranimalcn)
+ * [FFaker::AnimalUS](#ffakeranimalus)
  * [FFaker::Avatar](#ffakeravatar)
  * [FFaker::BaconIpsum](#ffakerbaconipsum)
  * [FFaker::Book](#ffakerbook)
@@ -101,6 +102,7 @@
  * [FFaker::NameGA](#ffakernamega)
  * [FFaker::NameGR](#ffakernamegr)
  * [FFaker::NameID](#ffakernameid)
+ * [FFaker::NameIN](#ffakernamein)
  * [FFaker::NameIT](#ffakernameit)
  * [FFaker::NameJA](#ffakernameja)
  * [FFaker::NameKH](#ffakernamekh)
@@ -142,6 +144,7 @@
  * [FFaker::SSNSE](#ffakerssnse)
  * [FFaker::Skill](#ffakerskill)
  * [FFaker::Sport](#ffakersport)
+ * [FFaker::SportUS](#ffakersportus)
  * [FFaker::String](#ffakerstring)
  * [FFaker::Time](#ffakertime)
  * [FFaker::Tweet](#ffakertweet)
@@ -530,7 +533,7 @@
 | Method | Example |
 | ------ | ------- |
 | `building_number` | 7028, 42724, 35719 |
-| `city` | Port Gabriella, Baileyburgh, West Jenisemouth |
+| `city` | Mumbai, Delhi, Bangalore |
 | `city_prefix` | North, East, East |
 | `city_suffix` | fort, bury, bury |
 | `country` | India, India, India |
@@ -820,13 +823,19 @@
 
 | Method | Example |
 | ------ | ------- |
-| `common_name` | Newt, Rabbit, Frog |
+| `common_name` | ❗ *[common_name] is deprecated. For animal names in english please use the AnimalUS module* |
 
 ## FFaker::AnimalCN
 
 | Method | Example |
 | ------ | ------- |
 | `common_name` | 蝾螈, 兔子, 青蛙 |
+
+## FFaker::AnimalUS
+
+| Method | Example |
+| ------ | ------- |
+| `common_name` | Newt, Rabbit, Frog |
 
 ## FFaker::Avatar
 
@@ -1613,6 +1622,17 @@
 | `name_with_prefix` | Tn. Priadi Riyadi, Ny. Juminten Juniarto, Tn. Adam Purwaningsih |
 | `prefix` | Nn., Nn., Nn. |
 
+## FFaker::NameIN
+
+| Method | Example |
+| ------ | ------- |
+| `first_name_female` | Yazhini,Aradhana,Naira  |
+| `first_name_male` | Rudra,Ivaan,Arnav |
+| `last_name` | Gupta,Ghosh,Shah |
+| `name_male` | Vedansh Acharya,Arnav Haldar,Darsh Burman |
+| `name_female` | Mahira Dhawan,Anshika Goswami,Samaira Pandey |
+| `name` | Vedant Deshpande,Divija Dixit,Shreyan Madan |
+
 ## FFaker::NameIT
 
 | Method | Example |
@@ -2171,6 +2191,12 @@
 | `tech_skills` | XHR, JavaScript, Visio, ExtJS, LAMP, Visio, SublimeText, LAMP, JSP |
 
 ## FFaker::Sport
+
+| Method | Example |
+| ------ | ------- |
+| `name` | ❗ *[name] is deprecated. For US sports please use the SportUS module* |
+
+## FFaker::SportUS
 
 | Method | Example |
 | ------ | ------- |
