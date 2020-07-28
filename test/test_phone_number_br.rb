@@ -1,8 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Author: Gustavo Souza https://github.com/gustavor-souza
 class TestPhoneNumberBR < Test::Unit::TestCase
   include DeterministicHelper
 
@@ -17,6 +16,14 @@ class TestPhoneNumberBR < Test::Unit::TestCase
     @tester = FFaker::PhoneNumberBR
   end
 
+  def test_area_codes
+    assert(!@tester::AREA_CODE.empty?)
+    assert(@tester::AREA_CODE.sort.uniq == @tester::AREA_CODE)
+    @tester::AREA_CODE.each do |area_code|
+      assert_match(/\A[1-9]\d\z/, area_code)
+    end
+  end
+
   def test_phone_number
     10.times do
       assert_match(/\A[1-9]\d\s?9?\d{4}-?\d{4}\z/, @tester.phone_number)
@@ -29,7 +36,7 @@ class TestPhoneNumberBR < Test::Unit::TestCase
   end
 
   def test_mobile_phone_number
-    assert_match(/\A[1-9]\d\s?([6-9]|9[6-9])\d{3}-?\d{4}\z/,
+    assert_match(/\A[1-9]\d\s?9[6-9]\d{3}-?\d{4}\z/,
                  @tester.mobile_phone_number)
   end
 
@@ -41,7 +48,7 @@ class TestPhoneNumberBR < Test::Unit::TestCase
   end
 
   def test_international_mobile_phone_number
-    assert_match(/\A\+55\s?[1-9]\d\s?([6-9]|9[6-9])\d{3}-?\d{4}\z/,
+    assert_match(/\A\+55\s?[1-9]\d\s?9[6-9]\d{3}-?\d{4}\z/,
                  @tester.international_mobile_phone_number)
   end
 

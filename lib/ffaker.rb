@@ -1,12 +1,12 @@
-module FFaker
-  VERSION = '2.10.0'.freeze
+# frozen_string_literal: true
 
+module FFaker
   require 'ffaker/utils/array_utils'
   require 'ffaker/utils/module_utils'
 
   extend ModuleUtils
 
-  BASE_LIB_PATH = File.expand_path('..', __FILE__)
+  BASE_LIB_PATH = File.expand_path(__dir__)
 
   LETTERS = [*'a'..'z'].freeze
 
@@ -55,21 +55,26 @@ module FFaker
   autoload :AddressUK, 'ffaker/address_uk'
   autoload :AddressUS, 'ffaker/address_us'
   autoload :Airline, 'ffaker/airline'
-  autoload :Animal, 'ffaker/animals'
-  autoload :AnimalCN, 'ffaker/animals_cn'
-  autoload :AnimalUS, 'ffaker/animals_us'
+  autoload :Animal, 'ffaker/animal'
+  autoload :AnimalCN, 'ffaker/animal_cn'
+  autoload :AnimalES, 'ffaker/animal_es'
+  autoload :AnimalPL, 'ffaker/animal_pl'
+  autoload :AnimalUS, 'ffaker/animal_us'
   autoload :Avatar, 'ffaker/avatar'
   autoload :AWS, 'ffaker/aws'
   autoload :BaconIpsum, 'ffaker/bacon_ipsum'
+  autoload :Bank, 'ffaker/bank'
   autoload :Book, 'ffaker/book'
   autoload :Boolean, 'ffaker/boolean'
   autoload :CheesyLingo, 'ffaker/cheesy_lingo'
   autoload :Code, 'ffaker/code'
   autoload :Color, 'ffaker/color'
+  autoload :ColorPL, 'ffaker/color_pl'
   autoload :ColorUA, 'ffaker/color_ua'
   autoload :Company, 'ffaker/company'
   autoload :CompanyCN, 'ffaker/company_cn'
   autoload :CompanyIT, 'ffaker/company_it'
+  autoload :CompanyJA, 'ffaker/company_ja'
   autoload :CompanySE, 'ffaker/company_se'
   autoload :Conference, 'ffaker/conference'
   autoload :CoursesFR, 'ffaker/courses'
@@ -83,10 +88,14 @@ module FFaker
   autoload :GenderBR, 'ffaker/gender_br'
   autoload :GenderCN, 'ffaker/gender_cn'
   autoload :GenderID, 'ffaker/gender_id'
+  autoload :GenderJA, 'ffaker/gender_ja'
+  autoload :GenderJP, 'ffaker/gender_jp'
   autoload :GenderKR, 'ffaker/gender_kr'
+  autoload :GenderPL, 'ffaker/gender_pl'
   autoload :Geolocation, 'ffaker/geolocation'
   autoload :Guid, 'ffaker/guid'
   autoload :HealthcareIpsum, 'ffaker/healthcare_ipsum'
+  autoload :HealthcareRU, 'ffaker/healthcare_ru'
   autoload :HipsterIpsum, 'ffaker/hipster_ipsum'
   autoload :HTMLIpsum, 'ffaker/html_ipsum'
   autoload :Identification, 'ffaker/identification'
@@ -94,8 +103,11 @@ module FFaker
   autoload :IdentificationES, 'ffaker/identification_es'
   autoload :IdentificationESCL, 'ffaker/identification_es_cl'
   autoload :IdentificationESCO, 'ffaker/identification_es_co'
+  autoload :IdentificationIN, 'ffaker/identification_in'
   autoload :IdentificationKr, 'ffaker/identification_kr'
   autoload :IdentificationMX, 'ffaker/identification_mx'
+  autoload :IdentificationPL, 'ffaker/identification_pl'
+  autoload :IdentificationTW, 'ffaker/identification_tw'
   autoload :Image, 'ffaker/image'
   autoload :Internet, 'ffaker/internet'
   autoload :InternetSE, 'ffaker/internet_se'
@@ -163,13 +175,18 @@ module FFaker
   autoload :PhoneNumberKR, 'ffaker/phone_number_kr'
   autoload :PhoneNumberMX, 'ffaker/phone_number_mx'
   autoload :PhoneNumberNL, 'ffaker/phone_number_nl'
+  autoload :PhoneNumberPL, 'ffaker/phone_number_pl'
   autoload :PhoneNumberSE, 'ffaker/phone_number_se'
   autoload :PhoneNumberSG, 'ffaker/phone_number_sg'
   autoload :PhoneNumberSN, 'ffaker/phone_number_sn'
   autoload :PhoneNumberTW, 'ffaker/phone_number_tw'
+  autoload :PhoneNumberUA, 'ffaker/phone_number_ua'
+  autoload :PhoneNumberRU, 'ffaker/phone_number_ru'
   autoload :Product, 'ffaker/product'
+  autoload :SemVer, 'ffaker/sem_ver'
   autoload :Skill, 'ffaker/skill'
   autoload :Sport, 'ffaker/sport'
+  autoload :SportPL, 'ffaker/sport_pl'
   autoload :SportUS, 'ffaker/sport_us'
   autoload :SSN, 'ffaker/ssn'
   autoload :SSNMX, 'ffaker/ssn_mx'
@@ -189,12 +206,12 @@ module FFaker
   module Random
     # Returns the current RNG seed.
     def self.seed
-      @random_seed ||= ::Random.new_seed
+      @seed ||= ::Random.new_seed
     end
 
     # Sets the RNG seed and creates a new internal RNG.
     def self.seed=(new_seed)
-      @random_seed = new_seed
+      @seed = new_seed
       reset!
       new_seed
     end
@@ -206,11 +223,9 @@ module FFaker
 
     # Returns a random number using an RNG with a known seed.
     def self.rand(max = nil)
-      if max
-        rng.rand(max)
-      else
-        rng.rand
-      end
+      return rng.rand(max) if max
+
+      rng.rand
     end
 
     # Returns the current Random object.

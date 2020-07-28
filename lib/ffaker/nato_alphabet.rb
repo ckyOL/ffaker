@@ -1,13 +1,11 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
   module NatoAlphabet
     extend ModuleUtils
     extend self
 
-    ALPHABET_CODES = %w[ALPHA BRAVO CHARLIE DELTA ECHO FOXTROT GOLF HOTEL INDIA JULIETT KILO LIMA MIKE NOVEMBER OSCAR PAPA QUEBEC ROMEO SIERRA TANGO UNIFORM VICTOR WHISKEY XRAY YANKEE ZULU].freeze
-    NUMERIC_CODES = %w[ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE ZERO].freeze
-    STOP_CODE = 'STOP'.freeze
+    STOP_CODE = 'STOP'
     CODES = ALPHABET_CODES + NUMERIC_CODES + [STOP_CODE]
 
     def code

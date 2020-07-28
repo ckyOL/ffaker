@@ -1,13 +1,12 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Test features related to Finnish addresses
 class TestAddressFR < Test::Unit::TestCase
   include DeterministicHelper
 
   assert_methods_are_deterministic(
     FFaker::AddressFR,
-    :city, :full_address, :street_name, :postal_code
+    :city, :full_address, :street_name, :postal_code, :region
   )
 end

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
@@ -10,7 +10,7 @@ class TestFakerNameDA < Test::Unit::TestCase
     :any_name, :male_name, :female_name, :last_name, :prefix
   )
 
-  RU_REGEX = /[А-Я][а-я]+/
+  RU_REGEX = /[А-Я][а-я]+/.freeze
 
   def setup
     @tester = FFaker::NameDA
@@ -23,18 +23,18 @@ class TestFakerNameDA < Test::Unit::TestCase
   end
 
   def test_any_name
-    assert @tester.any_name.count(' ') < 3
+    assert_less_than @tester.any_name.count(' '), 3
   end
 
   def test_male_name
     regexp = /#{@tester::MALE_FIRST_NAMES.join('|')}/
-    assert @tester.male_name.count(' ') < 3
+    assert_less_than @tester.male_name.count(' '), 3
     assert_match(regexp, @tester.male_name)
   end
 
   def test_female_name
     regexp = /#{@tester::FEMALE_FIRST_NAMES.join('|')}/
-    assert @tester.female_name.count(' ') < 3
+    assert_less_than @tester.female_name.count(' '), 3
     assert_match(regexp, @tester.female_name)
   end
 

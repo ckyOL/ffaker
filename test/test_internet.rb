@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
@@ -57,9 +57,9 @@ class TestFakerInternet < Test::Unit::TestCase
   end
 
   def test_uri
-    assert @tester.uri('ftp').match(/^ftp:\/\/.+/)
-    assert @tester.uri('http').match(/^http:\/\/.+/)
-    assert @tester.uri('https').match(/^https:\/\/.+/)
+    assert @tester.uri('ftp').match(%r{^ftp://.+})
+    assert @tester.uri('http').match(%r{^http://.+})
+    assert @tester.uri('https').match(%r{^https://.+})
 
     assert_deterministic { @tester.uri('ftp') }
     assert_deterministic { @tester.uri('http') }
@@ -67,7 +67,7 @@ class TestFakerInternet < Test::Unit::TestCase
   end
 
   def test_http_url
-    assert @tester.http_url.match(/^http:\/\/.+/)
+    assert @tester.http_url.match(%r{^http://.+})
   end
 
   def test_ip_v4_address
@@ -93,15 +93,15 @@ class TestFakerInternet < Test::Unit::TestCase
   end
 
   def test_password_min_length
-    assert @tester.password(3).length > 2
-    assert @tester.password(6).length > 5
-    assert @tester.password(15).length > 14
+    assert_greater_than @tester.password(3).length, 2
+    assert_greater_than @tester.password(6).length, 5
+    assert_greater_than @tester.password(15).length, 14
   end
 
   def test_password_max_length
-    assert @tester.password(3, 10).length < 11
-    assert @tester.password(7, 15).length < 16
-    assert @tester.password(1, 3).length < 4
+    assert_less_than @tester.password(3, 10).length, 11
+    assert_less_than @tester.password(7, 15).length, 16
+    assert_less_than @tester.password(1, 3).length, 4
   end
 
   def test_password_fixed_length
@@ -109,9 +109,9 @@ class TestFakerInternet < Test::Unit::TestCase
   end
 
   def test_password_strange_argument
-    assert @tester.password(10, 2).length > 9
-    assert @tester.password(3, 1).length > 2
-    assert @tester.password(8, 5).length > 7
+    assert_greater_than @tester.password(10, 2).length, 9
+    assert_greater_than @tester.password(3, 1).length, 2
+    assert_greater_than @tester.password(8, 5).length, 7
   end
 
   def test_mac

@@ -1,8 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Author: lurraca github.com/lurraca
 class TestUnits < Test::Unit::TestCase
   include DeterministicHelper
 

@@ -1,11 +1,14 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
   module Identification
     extend ModuleUtils
     extend self
 
-    ETHNICITIES = ['African American', 'Asian/Pacific Islander', 'Caucasian', 'Hispanic', 'Native American', 'Multiracial', 'Other', 'Prefer not to respond'].freeze
+    ETHNICITIES = [
+      'African American', 'Asian/Pacific Islander', 'Caucasian', 'Hispanic', 'Native American',
+      'Multiracial', 'Other', 'Prefer not to respond'
+    ].freeze
     GENDERS = %w[Male Female].freeze
 
     def drivers_license

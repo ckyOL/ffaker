@@ -1,13 +1,12 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Test features related to Finnish addresses
 class TestAddressFI < Test::Unit::TestCase
   include DeterministicHelper
 
-  ALPHA = /\A[\p{Alpha}]+/
-  DIGIT = /\d{1}/
+  ALPHA = /\A[\p{Alpha}]+/.freeze
+  DIGIT = /\d{1}/.freeze
 
   assert_methods_are_deterministic(
     FFaker::AddressFI,

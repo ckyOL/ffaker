@@ -1,20 +1,21 @@
-require 'rubygems'
+# frozen_string_literal: true
+
 require 'benchmark'
 
-N = 10_000
+NAMES_COUNT = 10_000
 
 def run(name)
-  require name
   Benchmark.bm do |rep|
-    rep.report("generating #{N} names (#{name} #{FFaker::VERSION})") do
-      N.times do
-        FFaker::Name.name
-      end
+    rep.report("generating #{NAMES_COUNT} names (#{name})") do
+      mod = name == 'ffaker' ? FFaker : Faker
+      NAMES_COUNT.times { mod::Name.name }
     end
   end
-  $stdout.flush
-  exit(0)
 end
 
-fork { run('faker') }; Process.wait
-fork { run('ffaker') }; Process.wait
+%w[faker ffaker].each do |gem_name|
+  require gem_name
+
+  fork { run(gem_name) }
+  Process.wait
+end

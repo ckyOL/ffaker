@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# frozen_string_literal: true
 
 require 'helper'
 
@@ -12,7 +12,7 @@ class TestFakerJobKR < Test::Unit::TestCase
   end
 
   def test_title
-    assert @tester.title.length >= 1
+    assert_greater_than_or_equal_to @tester.title.length, 1
   end
 
   def test_nouns

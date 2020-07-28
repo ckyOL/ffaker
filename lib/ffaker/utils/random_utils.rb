@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FFaker
   # Methods for returning repeatably-random data using the internal
   # Random Number Generator. You should not need to use this directly, it is
@@ -18,6 +20,8 @@ module FFaker
     def fetch_sample(list, options = {})
       if (count = options.delete(:count))
         list.sample(count, random: FFaker::Random)
+      elsif list.is_a?(Range)
+        FFaker::Random.rand(list)
       else
         list.sample(random: FFaker::Random)
       end

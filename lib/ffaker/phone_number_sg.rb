@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
   # Based on information from http://en.wikipedia.org/wiki/Telephone_numbers_in_Singapore

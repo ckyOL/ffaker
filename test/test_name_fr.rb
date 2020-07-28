@@ -1,8 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Author: PapePathe<pathe.sene@gmail.com> github.com/PapePathe
 class TestFakerNameFR < Test::Unit::TestCase
   include DeterministicHelper
 

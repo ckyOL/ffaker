@@ -1,12 +1,12 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
   module String
     extend ModuleUtils
     extend self
 
-    BACKSLASH = '\\'.freeze
-    DASH      = '-'.freeze
+    BACKSLASH = '\\'
+    DASH      = '-'
 
     LOWERS     = [*'a'..'z'].freeze
     UPPERS     = [*'A'..'Z'].freeze
@@ -17,7 +17,7 @@ module FFaker
     ESCAPEABLE_CHARS = ['\\', '/', '.', '(', ')', '[', ']', '{', '}'].freeze
 
     def from_regexp(exp)
-      result = ''
+      result = +''
       @last_token = nil
 
       # Drop surrounding /'s and split into characters
@@ -50,7 +50,7 @@ module FFaker
       token = tokens.shift
 
       case token
-      when '?' then
+      when '?'
         # TODO: Let ? generate nothing
         '' # We already printed its target
       when '+' then
@@ -59,9 +59,10 @@ module FFaker
       when '*' then
         tokens.unshift(token) if rand(0..1) == 1 # Leave the `*` on to run again
         return '' if rand(0..1) == 1 # Or maybe do nothing
+
         process_token(@last_token) # Else run the last one again
       when '{' then
-        number = ''
+        number = +''
         while (ch = tokens.shift) != '}'
           number << ch
         end

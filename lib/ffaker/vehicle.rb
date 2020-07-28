@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
   module Vehicle
@@ -6,11 +6,7 @@ module FFaker
     extend self
 
     DRIVETRAINS = %w[4WD 4X4 AWD FWD RWD].freeze
-    YEARS = [*'1900'..(Date.today.year + 1).to_s].freeze
-    COLOR_PREFIXES = k(%w[
-                         beautiful bright calm dangerous dark dull fast magnetic magnificent majestic melodic metallic
-                         mundane mute mysterious new pleasant pretty resonant royal slate soft tranquil vibrant weak
-                       ])
+    YEARS = [*'1900'..(::Time.now.year + 1).to_s].freeze
     TRANSMISSIONS_ABBR = %w[AT MT AM CVT].freeze
     CYLINDERS = %w[2 5 6 8].freeze
 
@@ -26,9 +22,9 @@ module FFaker
       fetch_sample(MAKES_LIST)
     end
 
-    def manufacturer_color(n = 2)
+    def manufacturer_color(count = 2)
       # Take two prefixes because it's more fun than one
-      (fetch_sample(COLOR_PREFIXES, count: n) + [base_color]).join(' ')
+      (fetch_sample(COLOR_PREFIXES, count: count) + [base_color]).join(' ')
     end
     alias mfg_color manufacturer_color
 

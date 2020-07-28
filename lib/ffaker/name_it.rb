@@ -1,7 +1,6 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
-  # Author microspino<info@microspino.com> github.com/microspino
   module NameIT
     extend ModuleUtils
     extend self
@@ -25,7 +24,7 @@ module FFaker
     def name
       case rand(0..9)
       when 5, 7 then "#{prefix} #{first_name} #{last_name}"
-      else        "#{first_name} #{last_name}"
+      else "#{first_name} #{last_name}"
       end
     end
   end

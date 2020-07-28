@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
   module LoremUA
@@ -17,7 +17,7 @@ module FFaker
       elements = words(word_count + rand(0..9))
       elements.insert(rand(3..(elements.count - 3)), ',') if elements.count > 10
       result = elements.join(' ').gsub(' , ', ', ')
-      capitalize_ukrainian("#{result}#{sentence_type_mark}")
+      capitalize_ukrainian(+"#{result}#{sentence_type_mark}")
     end
 
     alias phrase sentence
@@ -47,9 +47,7 @@ module FFaker
     end
 
     def capitalize_ukrainian(string)
-      unless CAPITAL_CHARS.include?(string[0])
-        string[0] = CAPITAL_CHARS[CHARS.index(string[0])]
-      end
+      string[0] = CAPITAL_CHARS[CHARS.index(string[0])] unless CAPITAL_CHARS.include?(string[0])
       string
     end
   end

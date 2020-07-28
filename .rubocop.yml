@@ -1,5 +1,6 @@
-Style/FrozenStringLiteralComment:
-  Enabled: true
+AllCops:
+  TargetRubyVersion: 2.4
+  NewCops: enable
 Style/StringLiterals:
   Description: Checks if uses of quotes match the configured preference.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#consistent-string-literals
@@ -8,11 +9,15 @@ Style/StringLiterals:
   SupportedStyles:
   - single_quotes
   - double_quotes
-Metrics/LineLength:
-  Max: 100
+Layout/LineLength:
+  Max: 120
   AllowURI: true
   URISchemes:
     - http
     - https
 Style/Encoding:
+  Enabled: false
+Style/ModuleFunction:
+  Enabled: false
+Style/Documentation:
   Enabled: false

@@ -1,7 +1,6 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
-  # Author: guapolo github.com/guapolo
   module PhoneNumberMX
     extend ModuleUtils
     extend self

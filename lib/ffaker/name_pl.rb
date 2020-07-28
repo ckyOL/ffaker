@@ -1,8 +1,6 @@
-# encoding: UTF-8
 # frozen_string_literal: true
 
 module FFaker
-  # Author Walerian Sobczak <walerian.sobczak@gmail.com> github.com/walerian777
   # Inspirations:
   # https://pl.wiktionary.org/wiki/Indeks:Polski_-_Imiona
   # https://pl.wiktionary.org/wiki/Kategoria:Polskie_nazwiska_m%C4%99skie
@@ -93,6 +91,7 @@ module FFaker
     def name_for_gender(name_type, gender) # :nodoc:
       raise(ArgumentError, "Gender must be one of: #{GENDERS}") unless GENDERS.include?(gender)
       return send("#{gender}_#{name_type}") unless gender == :random
+
       fetch_sample([send("female_#{name_type}"), send("male_#{name_type}")])
     end
   end

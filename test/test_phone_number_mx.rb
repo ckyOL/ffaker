@@ -1,8 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Author: guapolo github.com/guapolo
 class TestPhoneNumberMX < Test::Unit::TestCase
   include DeterministicHelper
 

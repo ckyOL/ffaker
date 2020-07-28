@@ -1,7 +1,4 @@
-# encoding: utf-8
-
-# => author: PapePathe github.com/PapePathe
-# => email: pathe.sene@gmail.com
+# frozen_string_literal: true
 
 require 'helper'
 

@@ -1,8 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Author: wiseleyb<wiseleyb@gmail.com>
 class TestPhoneNumberNL < Test::Unit::TestCase
   include DeterministicHelper
 

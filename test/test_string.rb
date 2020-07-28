@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
@@ -43,7 +43,7 @@ class TestString < Test::Unit::TestCase
   end
 
   def test_escaped_characters
-    assert_equal '\\/.()[]{}', FS.from_regexp(/\\\/\.\(\)\[\]\{\}/)
+    assert_equal '\\/.()[]{}', FS.from_regexp(%r{\\/\.\(\)\[\]\{\}})
     assert_deterministic { FS.from_regexp(%r|\\\/\.\(\)\[\]\{\}|) }
   end
 
@@ -53,8 +53,8 @@ class TestString < Test::Unit::TestCase
   end
 
   def test_special_sets
-    assert_match(/\A[\w\d]\z/, FS.from_regexp(/[\w\d]/))
-    assert_deterministic { FS.from_regexp(/[\w\d]/) }
+    assert_match(/\A[\s\d]\z/, FS.from_regexp(/[\s\d]/))
+    assert_deterministic { FS.from_regexp(/[\s\d]/) }
   end
 
   def test_atom_question

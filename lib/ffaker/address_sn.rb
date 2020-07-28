@@ -1,9 +1,8 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'ffaker/address'
 
 module FFaker
-  # Author PapePathe<pathe.sene@gmail.com> github.com/PapePathe
   module AddressSN
     include FFaker::Address
 

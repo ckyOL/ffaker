@@ -1,8 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
-# Author Guapolo <github.com/guapolo>
 class TestSSNMX < Test::Unit::TestCase
   include DeterministicHelper
 

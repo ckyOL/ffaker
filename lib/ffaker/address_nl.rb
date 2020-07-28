@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'ffaker/address'
 
@@ -9,10 +9,8 @@ module FFaker
     extend ModuleUtils
     extend self
 
-    POSTAL_CODE_FORMAT = ['#### ??'].freeze
-
     def postal_code
-      FFaker.bothify POSTAL_CODE_FORMAT
+      FFaker::String.from_regexp(/[1-9]\d{3} [A-RT-Z][A-Z]/)
     end
 
     def zip_code

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'ffaker/identification_es'
 require 'date'
@@ -27,7 +27,7 @@ module FFaker
       "#{category}#{num}"
     end
 
-    def blood_type # RH
+    def blood_type
       sign = fetch_sample(%w[+ -])
       "#{fetch_sample(BLOOD_TYPE)}#{sign}"
     end

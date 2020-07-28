@@ -30,18 +30,22 @@
  * [FFaker::Airline](#ffakerairline)
  * [FFaker::Animal](#ffakeranimal)
  * [FFaker::AnimalCN](#ffakeranimalcn)
+ * [FFaker::AnimalES](#ffakeranimales)
  * [FFaker::AnimalUS](#ffakeranimalus)
  * [FFaker::Avatar](#ffakeravatar)
  * [FFaker::BaconIpsum](#ffakerbaconipsum)
+ * [FFaker::Bank](#ffakerbank)
  * [FFaker::Book](#ffakerbook)
  * [FFaker::Boolean](#ffakerboolean)
  * [FFaker::CheesyLingo](#ffakercheesylingo)
  * [FFaker::Code](#ffakercode)
  * [FFaker::Color](#ffakercolor)
+ * [FFaker::ColorPL](#ffakercolorpl)
  * [FFaker::ColorUA](#ffakercolorua)
  * [FFaker::Company](#ffakercompany)
  * [FFaker::CompanyCN](#ffakercompanycn)
  * [FFaker::CompanyIT](#ffakercompanyit)
+ * [FFaker::CompanyJA](#ffakercompanyja)
  * [FFaker::CompanySE](#ffakercompanyse)
  * [FFaker::Conference](#ffakerconference)
  * [FFaker::CoursesFR](#ffakercoursesfr)
@@ -60,14 +64,18 @@
  * [FFaker::Guid](#ffakerguid)
  * [FFaker::HTMLIpsum](#ffakerhtmlipsum)
  * [FFaker::HealthcareIpsum](#ffakerhealthcareipsum)
+ * [FFaker::HealthcareRU](#ffakerhealthcareru)
  * [FFaker::HipsterIpsum](#ffakerhipsteripsum)
  * [FFaker::Identification](#ffakeridentification)
  * [FFaker::IdentificationBR](#ffakeridentificationbr)
  * [FFaker::IdentificationES](#ffakeridentificationes)
  * [FFaker::IdentificationESCL](#ffakeridentificationescl)
  * [FFaker::IdentificationESCO](#ffakeridentificationesco)
+ * [FFaker::IdentificationIN](#ffakeridentificationin)
  * [FFaker::IdentificationKr](#ffakeridentificationkr)
  * [FFaker::IdentificationMX](#ffakeridentificationmx)
+ * [FFaker::IdentificationPL](#ffakeridentificationpl)
+ * [FFaker::IdentificationTW](#ffakeridentificationtw)
  * [FFaker::Image](#ffakerimage)
  * [FFaker::Internet](#ffakerinternet)
  * [FFaker::InternetSE](#ffakerinternetse)
@@ -138,12 +146,16 @@
  * [FFaker::PhoneNumberSG](#ffakerphonenumbersg)
  * [FFaker::PhoneNumberSN](#ffakerphonenumbersn)
  * [FFaker::PhoneNumberTW](#ffakerphonenumbertw)
+ * [FFaker::PhoneNumberUA](#ffakerphonenumberua)
+ * [FFaker::PhoneNumberRU](#ffakerphonenumberru)
  * [FFaker::Product](#ffakerproduct)
+ * [FFaker::SemVer](#ffakersemver)
  * [FFaker::SSN](#ffakerssn)
  * [FFaker::SSNMX](#ffakerssnmx)
  * [FFaker::SSNSE](#ffakerssnse)
  * [FFaker::Skill](#ffakerskill)
  * [FFaker::Sport](#ffakersport)
+ * [FFaker::SportPL](#ffakersportpl)
  * [FFaker::SportUS](#ffakersportus)
  * [FFaker::String](#ffakerstring)
  * [FFaker::Time](#ffakertime)
@@ -459,11 +471,12 @@
 | `city` | Tremblay-en-France, Les Abymes, Pantin |
 | `city_prefix` | East, East, Lake |
 | `city_suffix` | burgh, burgh, berg |
-| `country` | Martinique, Senegal, Côte d'Ivoire |
+| `country` | France, Senegal, Côte d'Ivoire |
 | `country_code` | MO, ME, NE |
 | `full_address` | 79, bd Isaac Clerc 2B607 Montigny-le-Bretonneux, 5655 T, bd Margaret Lucas, 2A042 Bagnolet, 47 rue Denis de Girard 2A145 Arles |
 | `neighborhood` | Bridesburg, North East Irwindale, Babylon Bayside |
-| `postal_code` | 976596, 973566, 979492 |
+| `postal_code` | 75008, 97659, 97356, 97949 |
+| `region` | Bretagne, Île-de-France, Pays de la Loire, Mayotte |
 | `secondary_address` | Apt. 596, Suite 111, Suite 400 |
 | `street_address` | 7 impasse Zoé de Mercier, 19 bd Thérèse Ramos, 47 QUATER boulevard Patrick Cousin |
 | `street_name` | Nakisha View, Dare Flats, Sunday Light |
@@ -800,6 +813,7 @@
 | `secondary_address` | Suite 597, Apt. 857, Apt. 834 |
 | `state` | North Dakota, Florida, Illinois |
 | `state_abbr` | NJ, MN, WA |
+| `state_abbr('California')` | CA |
 | `state_and_territories_abbr` | MD, VA, NM |
 | `street_address` | 221 Lester Lodge, 61254 Boyle Extension, 025 Nada Mill |
 | `street_name` | Mike Plain, Wisozk Ports, Zaida Causeway |
@@ -831,11 +845,18 @@
 | ------ | ------- |
 | `common_name` | 蝾螈, 兔子, 青蛙 |
 
+## FFaker::AnimalES
+
+| Method | Example |
+| ------ | ------- |
+| `common_name` | Mono, Águila, Zorro |
+
 ## FFaker::AnimalUS
 
 | Method | Example |
 | ------ | ------- |
 | `common_name` | Newt, Rabbit, Frog |
+
 
 ## FFaker::Avatar
 
@@ -857,6 +878,18 @@
 | `word` | tongue, turducken, prosciutto |
 | `words` | boudin, brisket, shankle, drumstick, tail, flank, ham hock, pork, strip steak |
 
+## FFaker::Bank
+
+| Method | Example |
+| ------ | ------- |
+| `iban` | LT068461723457561501, FO2226825430828346, UA353917102886113677140435165 |
+| `iban(country_code: 'at')` | AT817312345658600785, AT578030055615784246, AT788430896006678628 |
+| `iban(country_code: 'AT')` | AT935154385139465376, AT199676443295940702, AT575421622953218726 |
+| `card_number` | "8388 2554 2337 8097", "3112 2867 3411 2867", "1600 8342 6533 2869" |
+| `card_expiry_date` | "04/24", "09/23", "08/23" |
+| `card_expiry_date(format: '%m/%Y')` | "01/2021",  "09/2021", "08/2022" |
+| `card_type` | "maestro", "discover", "american_express" |
+
 ## FFaker::Book
 
 | Method | Example |
@@ -866,7 +899,7 @@
 | `description` | Ut ea aut necessitatibus corrupti ut repellendus odio. Voluptate rerum dolorem vero laborum et laudantium. Molestias adipisci veritatis eum quaerat in dignissimos possimus ab. Quidem assumenda repudiandae velit exercitationem qui dolorum labore quod., Explicabo quasi voluptas aut aut ad nam. Deserunt in tenetur est quidem doloribus aliquam quod. Voluptatem cum aperiam cumque nobis iusto dolores in. Sed necessitatibus molestiae et aliquam., Nisi et quam officia ea. Reprehenderit optio excepturi et commodi. Ut reiciendis amet deserunt ea voluptate. Temporibus consequatur quod sunt voluptatem. |
 | `genre` | Dieselpunk, Epic / High fantasy, Blessing |
 | `isbn` | 18445054293, 6871724811, 18215783130 |
-| `orly_cover` | https://orly-appstore.herokuapp.com/generate?title=A+Fistful+of+Green+Cousins&amp;top_text=Fantasy&amp;author=Latrina+Sporer&amp;image_code=34&amp;theme=16, https://orly-appstore.herokuapp.com/generate?title=Action+Gypsy&amp;top_text=Whig+history&amp;author=Venessa+Rogahn&amp;image_code=21&amp;theme=5, https://orly-appstore.herokuapp.com/generate?title=Forbidden+Women&amp;top_text=Nonfiction+novel&amp;author=Lupe+Kutch&amp;image_code=11&amp;theme=15 |
+| `orly_cover` | https://orly-appstore.herokuapp.com/generate?title=A+Fistful+of+Green+Cousins&amp;top_text=Fantasy&amp;author=Latrina+Sporer&amp;image_code=34&amp;theme=16, https://orly-appstore.herokuapp.com/generate?title=Action+Imp&amp;top_text=Whig+history&amp;author=Venessa+Rogahn&amp;image_code=21&amp;theme=5, https://orly-appstore.herokuapp.com/generate?title=Forbidden+Women&amp;top_text=Nonfiction+novel&amp;author=Lupe+Kutch&amp;image_code=11&amp;theme=15 |
 | `title` | Rise of the American Friday, Codename: Red Mutant, War of the Dangerous City |
 
 ## FFaker::Boolean
@@ -892,6 +925,7 @@
 | Method | Example |
 | ------ | ------- |
 | `ean` | 3898841772821, 4659685709508, 6077985245362 |
+| `npi` | 3657840229, 4282614922, 6249306468 |
 
 ## FFaker::Color
 
@@ -907,6 +941,12 @@
 | `rgb_list` | 21,178,210, 76,175,41, 242,222,178 |
 | `rgba_array` | 40, 94, 30, 0.86, 120, 84, 19, 0.96, 17, 68, 203, 0.73 |
 | `rgba_list` | 90,59,232,0.0, 14,141,128,0.26, 0,136,137,0.37 |
+
+## FFaker::ColorPL
+
+| Method | Example |
+| ------ | ------- |
+| `name` | kardynalski, zielony, rubinowy |
 
 ## FFaker::ColorUA
 
@@ -940,6 +980,13 @@
 | `partita_iva` | 47568480470, 39113540106, 06830830342 |
 | `prefix` | Laboratorio, Studio Tecnico, Studio Tecnico |
 | `suffix` | Ingegneri, Architetti, s.n.c. |
+
+## FFaker::CompanyJA
+
+| Method | Example |
+| ------ | ------- |
+| `name` | 指宿株式会社, 松本建設, 斎藤書店 |
+| `position` | 社員, 課長 |
 
 ## FFaker::CompanySE
 
@@ -1103,6 +1150,12 @@
 | `word` | reasonable and customary, evidence of insurability, free-look period |
 | `words` | usual and customary charge, second surgical opinion, underwriting, noncancellable policy, IPA, credentialing, discharge planning, creditable coverage, medigap |
 
+## FFaker::HealthcareRU
+
+| Method | Example |
+| ------ | ------- |
+| `doctor_specialization` | Терапевт, Хирург, Стоматолог |
+
 ## FFaker::HipsterIpsum
 
 | Method | Example |
@@ -1164,6 +1217,12 @@
 | `gender` | Mujer, Mujer, Hombre |
 | `id` | 2778228197782, 49397620594, 3992006541162 |
 
+## FFaker::IdentificationIN
+
+| Method | Example |
+| ------ | ------- |
+| `aadhaar` | 770376350842, 829743403424 |
+
 ## FFaker::IdentificationKr
 
 | Method | Example |
@@ -1178,6 +1237,20 @@
 | `rfc` | REAG870911CB2, ÑEDH820917F13, MHÑ780425ACI |
 | `rfc_persona_fisica` | BEHW7007246NE, XOQW7111161QZ, DUOY990416G12 |
 | `rfc_persona_moral` | DUJ1004129M7, HSA930723WU3, RÑI161008SJ8 |
+
+## FFaker::IdentificationPL
+
+| Method | Example |
+| ------ | ------- |
+| `pesel` | 82042691480, 05221154824, 53073028936 |
+| `identity_card` | AKH956298, CPI928237, VYB372774 |
+| `drivers_license` | 47704/10/7415, 20409/05/8025, 90741/34/4389 |
+
+## FFaker::IdentificationTW
+
+| Method | Example |
+| ------ | ------- |
+| `id` | A270604824, R298671809, X115253450 |
 
 ## FFaker::Image
 
@@ -1417,7 +1490,7 @@
 | Method | Example |
 | ------ | ------- |
 | `rating` | PG, R, G |
-| `title` | Bloody City, The Gypsy That Came to Dinner, Nuclear Dreams 2: Son of Nuclear Dreams |
+| `title` | Bloody City, The Imp That Came to Dinner, Nuclear Dreams 2: Son of Nuclear Dreams |
 
 ## FFaker::Music
 
@@ -1453,6 +1526,7 @@
 | `other_prefix` | Ms., Ms., Ms. |
 | `prefix` | Mr., Miss., Mrs. |
 | `suffix` | III, II, DVM |
+| `pronouns` | He/Him, She/Her, They/Their, Zie/Zim, Xe/Xem, Xe/Xer |
 
 ## FFaker::NameAR
 
@@ -1807,29 +1881,17 @@
 
 | Method | Example |
 | ------ | ------- |
-| `female_name_with_prefix` | Miss. Krystyna Толманов, Miss. Mariah Щиконикова, Mrs. Shizue Куприн |
-| `female_name_with_prefix_suffix` | Miss. Asia Монин DVM, Miss. Lila Томинов DVM, Miss. Cari Жеребченко Sr. |
-| `female_name_with_suffix` | Toccara Потакина III, Latisha Турлакова PhD, Lisbeth Волочаева DVM |
-| `female_prefix` | Mrs., Mrs., Mrs. |
-| `first_name` | Модест, Калерия, Руслана |
-| `first_name_female` | Keli, Brynn, Roxana |
-| `first_name_male` | Ivan, Erick, Alberto |
-| `html_safe_last_name` | Bednar, Auer, Morissette |
-| `html_safe_name` | Мария Rogahn, Демид Eichmann, Емельян Casper |
-| `last_name` | Анисимович, Штенников, Камышкина |
-| `male_name_with_prefix` | Mr. Galen Шишкова, Mr. Antwan Милославов, Mr. Titus Манукиан |
-| `male_name_with_prefix_suffix` | Mr. Millard Черноиванова PhD, Mr. Tracy Арисанова V, Mr. Dillon Иванова Jr. |
-| `male_name_with_suffix` | Horace Хрусткова V, Luis Ланятина Jr., Dewitt Цымбаева Jr. |
-| `male_prefix` | Mr., Mr., Mr. |
-| `name` | Балабанцев Семен Георгиевич, Битлер Евгений Мерабович, Дарина Барьзева |
-| `name_with_prefix` | Mrs. Lynsey Бахонов, Miss. Sade Арлушкина, Mr. Damien Хабайлова |
-| `name_with_prefix_suffix` | Miss. Elizbeth Пигулова DVM, Mr. Mac Подорожний DDS, Mr. Sammie Сеуткина V |
-| `name_with_suffix` | Terrence Коротько V, Lin Мирсианов MD, Tammie Цымбаева III |
-| `other_prefix` | Dr., Ms., Dr. |
-| `patronymic` | Павлович, Титович, Юлиановна |
-| `prefix` | Mrs., Miss., Miss. |
-| `suffix` | III, DVM, MD |
-| `with_same_sex` | ‼️ LocalJumpError: no block given (yield) |
+| `name` | Светлана Борисовна, Валентина Евгеньевна, Родион Родионович |
+| `first_name` | Венедикт, Игнатий, Елизавета |
+| `last_name` | Колесников, Щербаков, Медведева |
+| `female_name` | Маргарита Андреева, Антонина Морозова, Александра Александрова |
+| `male_name` | Иакинф Григорьев, Лукий Титов, Яков Васильев |
+| `first_name_female` | Анна, Мирослава, Любовь |
+| `first_name_male` | Никифор, Руслан, Макар |
+| `middle_name_female` | Матвеевна, Даниловна, Юрьевна |
+| `middle_name_male` | Станиславович, Ярославович, Антонович |
+| `last_name_female` | Никитина, Комарова, Белова |
+| `last_name_male` | Громов, Журавлев, Белов |
 
 ## FFaker::NameSE
 
@@ -2148,6 +2210,33 @@
 | `mobile_phone_number` | 0907-951-170, 0919-897-665, 0958-737-927 |
 | `phone_number` | 0930-232-944, (02) 3660-6071, (07) 599-7345 |
 
+## FFaker::PhoneNumberUA
+
+| Method | Example |
+| ------ | ------- |
+| `phone_number` | 062 880-8590, 066 036-1948, 067 837-5050 |
+| `home_phone_number` | 045 303-4795, 043 777-2297, 048 375-9391 |
+| `mobile_phone_number` | 095 803-8836, 097 628-9508, 063 942-2785 |
+| `international_home_phone_number` | +380 52 654-9374, +380 43 114-8453, +380 41 332-8776 |
+| `international_mobile_phone_number` | +380 99 027-1833, +380 97 032-1363, +380 93 735-5690 |
+
+## FFaker::PhoneNumberRU
+
+| Method | Example |
+| ------ | ------- |
+| `international_phone_number` | +7 814 525-94-28, +7 993 053-47-43, +7 958 282-93-06 |
+| `international_mobile_phone_number` | +7 962 525-97-36, +7 961 875-56-65, +7 960 608-41-55 |
+| `international_home_work_phone_number` | +7 388 427-99-91, +7 083 571-78-62, +7 836 008-36-33 |
+| `international_toll_free_number` | +7 800 745-57-49, +7 800 918-90-04, +7 800 484-75-82 |
+| `phone_number` | 8 960 890-56-81, 8 996 412-00-49, 8 087 379-69-90 |
+| `mobile_phone_number` | 8 906 132-01-07, 8 991 856-88-45, 8 960 606-40-31 |
+| `home_work_phone_number` | 8 351 730-13-87, 8 082 945-93-47, 8 341 718-87-45 |
+| `toll_free_number` | 8 800 955-13-12, 8 800 326-24-22, 8 800 919-82-24 |
+| `international_country_code` | +7, +7, +7 |
+| `country_code` | 8, 8, 8 |
+| `home_work_phone_prefix` | 347, 072, 472 |
+| `mobile_phone_prefix` | 929, 978, 999 |
+
 ## FFaker::Product
 
 | Method | Example |
@@ -2157,6 +2246,13 @@
 | `model` | E-3632, K-6659, G-1806 |
 | `product` | Pyncefunc Power Video Controller, Trionewood Electric Controller, Brincefunc Gel Filter |
 | `product_name` | Input Tag System, Disc Controller, Side Amplifier |
+
+## FFaker::SemVer
+
+| Method | Example |
+| ------ | ------- |
+| `next` | 0.1.0, 1.0.0, 0.1.0 |
+| `next('2.0.0')` | 2.1.0, 2.0.1, 3.0.0 |
 
 ## FFaker::SSN
 
@@ -2195,6 +2291,14 @@
 | Method | Example |
 | ------ | ------- |
 | `name` | ❗ *[name] is deprecated. For US sports please use the SportUS module* |
+
+## FFaker::SportPL
+
+| Method | Example |
+| ------ | ------- |
+| `name` | Siatkówka plażowa, Saneczkarstwo, Szachy |
+| `summer` | Rzut dyskiem, Wioślarstwo, Żeglarstwo |
+| `winter` | Narciarstwo alpejskie, Dwubój zimowy, Łyżwiarstwo figurowe |
 
 ## FFaker::SportUS
 

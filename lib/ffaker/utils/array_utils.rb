@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'ffaker/utils/random_utils'
+
 module FFaker
   module ArrayUtils
     extend RandomUtils
@@ -9,9 +12,9 @@ module FFaker
       freeze_all(array)
     end
 
-    def self.random_pick(array, n)
+    def self.random_pick(array, num)
       warn '[ArrayUtils.random_pick] is deprecated. Please use the ModuleUtils#fetch_sample method'
-      fetch_sample(array, count: n)
+      fetch_sample(array, count: num)
     end
 
     def self.rand(array)
@@ -29,9 +32,9 @@ module FFaker
       array.sort_by { FFaker::Random.rand }
     end
 
-    def random_pick(n)
+    def random_pick(num)
       warn '[ArrayUtils#random_pick] is deprecated. Please use the ModuleUtils#fetch_sample method'
-      ArrayUtils.random_pick(self, n)
+      ArrayUtils.random_pick(self, num)
     end
 
     def rand

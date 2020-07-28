@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
@@ -16,7 +16,7 @@ class TestPhoneNumberSE < Test::Unit::TestCase
     @tester = FFaker::PhoneNumberSE
   end
 
-  ALLOWED_CHARS = /[()\d +-]/
+  ALLOWED_CHARS = /[()\d +-]/.freeze
 
   def test_mobile_phone_prefix
     assert FFaker::PhoneNumberSE::MOBILE_PHONE_PREFIX.include?(@tester.mobile_prefix)
@@ -33,13 +33,13 @@ class TestPhoneNumberSE < Test::Unit::TestCase
   def test_mobile_phone_number
     assert_match(ALLOWED_CHARS, FFaker::PhoneNumberSE.mobile_phone_number)
     assert_match(/\d{3}/, FFaker::PhoneNumberSE.mobile_phone_number)
-    assert FFaker::PhoneNumberSE.mobile_phone_number.length > 9
+    assert_greater_than FFaker::PhoneNumberSE.mobile_phone_number.length, 9
   end
 
   def test_home_work_phone_number
     assert_match(ALLOWED_CHARS, FFaker::PhoneNumberSE.home_work_phone_number)
     assert_match(/\d{1} \d{2}/, FFaker::PhoneNumberSE.home_work_phone_number)
-    assert FFaker::PhoneNumberSE.mobile_phone_number.length > 9
+    assert_greater_than FFaker::PhoneNumberSE.mobile_phone_number.length, 9
   end
 
   def test_phone_number

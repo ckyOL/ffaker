@@ -1,8 +1,6 @@
-# encoding: UTF-8
 # frozen_string_literal: true
 
 module FFaker
-  # Author Walerian Sobczak <walerian.sobczak@gmail.com> github.com/walerian777
   # Inspirations:
   # TERYT registry, available at: http://www.stat.gov.pl/broker/access/index.jspa
   module AddressPL

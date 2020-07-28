@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
@@ -18,6 +18,15 @@ class TestAddressUSUS < Test::Unit::TestCase
 
   def test_us_state_abbr
     assert_match(/[A-Z]/, FFaker::AddressUS.state_abbr)
+    %w[California california CALIFORNIA].each do |state|
+      assert_match('CA', FFaker::AddressUS.state_abbr(state))
+    end
+    ['South Carolina', 'south carolina'].each do |state|
+      assert_match('SC', FFaker::AddressUS.state_abbr(state))
+    end
+    assert_raise ArgumentError, "Unexpected state: 'unknown'" do
+      FFaker::AddressUS.state_abbr('unknown')
+    end
   end
 
   def test_us_state_and_territories_abbr

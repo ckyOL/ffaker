@@ -1,3 +1,49 @@
+## development
+
+  - Add your change HERE
+
+## 2.16.0
+  - Add IdentificationIN [@nigelgomesot]
+  - Improved NL zipcode generation [@gerard76]
+
+## 2.15.0
+  - Add `IdentificationTW` [@pominx]
+  - Add `CompanyJA` [@ktroutner]
+  - Add `AddressFR.region` [@GuillaumeOcculy]
+  - Add `AnimalES` [@delucas]
+  - Fix `AddressNL.postal_code` [@gerard76]
+
+## 2.14.0
+  - Add `Code.npi` [@alibby]
+
+## 2.13.0
+  - Add `Bank.card_number`, `.card_expiry_date` and `.card_type` [@AlexWayfer]
+  - Add `Bank.iban` [@Volosh1n]
+  - Add optional argument to `AddressUS.state_abbr` to determine state's abbreviation [@Volosh1n]
+  - Add `Name.pronouns` [@danderozier]
+  - Add `FFaker::ColorPL`, `FFaker::IdentificationPL`, `FFaker::SportPL` [@walerian777]
+
+## 2.12.0
+  - Add Russian Phone Numbers [@steverovsky]
+  - Remove invalid example from NameRU.first_name_male [@steverovsky]
+  - *BREAKING CHANGE*: Drop support of under 2.3  [@marocchino]
+  - Add PhoneNumberUA [@Volosh1n]
+  - Add SemVer [@marocchino]
+  - Remove some obselated prefix from PhoneNumberBR.mobile_phone_prefix
+    [@Kutomore]
+  - Add Book.iban [@Volosh1n]
+  - Add Name.pronouns [@danderozier]
+  - Add PhoneNumberRU [@steverovsky]
+
+## 2.11.0
+  - Add HealthcareRU [@gruz0]
+  - Removing potentially offensive name [@rvisuvasam]
+  - Add NameTW, PhoneNumberTW [@pominx]
+  - Add AnimalCN, EducationCN [@ckyOL]
+  - Add NameIN [@alagu]
+  - Add AnimalPL, GenderPL, GenderJP, PhoneNumberPL [@walerian777]
+  - Now PhoneNumberBR returns only valid area_code
+
 ## 2.10.0
   - Add Image [@nicolas-brousse]
   - Add LoremPL (Polish) [@walerian777]

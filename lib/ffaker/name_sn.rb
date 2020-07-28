@@ -1,7 +1,6 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module FFaker
-  # Author PapePathe<pathe.sene@gmail.com> github.com/PapePathe
   # The names & first names in this module were found at this url:
   # http://www.senegalaisement.com/senegal/noms_et_prenoms.html
   module NameSN
@@ -49,10 +48,8 @@ module FFaker
       case rand(0..5)
       when 0 then "#{prefix_female} #{first_name_female} #{last_name}"
       when 1 then "#{prefix_male} #{first_name_male} #{last_name}"
-      when 2 then "#{first_name_male} #{last_name}"
-      when 3 then "#{first_name_female} #{last_name}"
-      when 4 then "#{first_name_male} #{last_name}"
-      else        "#{first_name_female} #{last_name}"
+      when 2, 4 then "#{first_name_male} #{last_name}"
+      when 3, 5 then "#{first_name_female} #{last_name}"
       end
     end
   end

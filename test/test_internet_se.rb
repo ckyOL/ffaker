@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'helper'
 
@@ -59,13 +59,13 @@ class TestFakerInternetSE < Test::Unit::TestCase
   end
 
   def test_uri
-    assert @tester.uri('ftp').match(/^ftp:\/\/.+/)
-    assert @tester.uri('http').match(/^http:\/\/.+/)
-    assert @tester.uri('https').match(/^https:\/\/.+/)
+    assert @tester.uri('ftp').match(%r{^ftp://.+})
+    assert @tester.uri('http').match(%r{^http://.+})
+    assert @tester.uri('https').match(%r{^https://.+})
   end
 
   def test_http_url
-    assert @tester.http_url.match(/^http:\/\/.+/)
+    assert @tester.http_url.match(%r{^http://.+})
   end
 
   def test_ip_v4_address
